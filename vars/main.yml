@@ -1,17 +1,26 @@
 ---
 install_packages:
   - 'tor'
+install_files:
+  - owner:                              'root'
+    group:                              'root'
+    mode:                               '0644'
+    src:                                'files/conf/apt/sources.list.d/debian_stable_backports.list'
+    dest:                               '/etc/apt/sources.list.d/debian_stable_backports.list'
+commands:
+  - command:                            apt update
+install_packages_from_release:          'stable-backports'
 template_files:
-  - owner:              'root'
-    group:              'root'
-    mode:               '0644'
-    src:                'templates/conf/torrc.j2'
-    dest:               '/etc/tor/torrc'
-  - owner:              'root'
-    group:              'root'
-    mode:               '0644'
-    src:                "templates/conf/front_page.html.j2"
-    dest:               '/etc/tor/front_page.html'
+  - owner:                              'root'
+    group:                              'root'
+    mode:                               '0644'
+    src:                                'templates/conf/torrc.j2'
+    dest:                               '/etc/tor/torrc'
+  - owner:                              'root'
+    group:                              'root'
+    mode:                               '0644'
+    src:                                "templates/conf/front_page.html.j2"
+    dest:                               '/etc/tor/front_page.html'
 restart_services:
   - 'tor'
 enable_services:
