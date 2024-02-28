@@ -1,16 +1,16 @@
 ---
 install_packages:
   - 'tor'
-install_files:
+template_files:
   - owner:              'root'
     group:              'root'
     mode:               '0644'
-    src:                '../../../sensitive-ansible/roles/tor/files/conf/torrc'
+    src:                'templates/conf/torrc.j2'
     dest:               '/etc/tor/torrc'
   - owner:              'root'
     group:              'root'
     mode:               '0644'
-    src:                "{{ role_path }}/files/conf/front_page.html"
+    src:                "templates/conf/front_page.html.j2"
     dest:               '/etc/tor/front_page.html'
 restart_services:
   - 'tor'

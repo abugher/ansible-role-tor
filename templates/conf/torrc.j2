@@ -1,0 +1,21 @@
+SocksPort 0
+ORPort 9001
+Address {{ inventory_hostname }}.{{ domain }}
+Nickname {% if tor_nickname is defined %}{{ tor_nickname }}{% else %}{{ inventory_hostname }}{% endif %}
+{#
+I don't know how to get a fingerprint before deploying.  Try to remember to add
+the fingerprint to host vars after deployment.  See:  /var/lib/tor/fingerprint
+#}
+{% set family = [] %}
+{% for h in groups['tor'] -%}
+  {%- if hostvars[h]['tor_fingerprint'] is defined -%}
+    {{ family.append( hostvars[h]['tor_fingerprint'] ) }}
+  {%- endif -%}
+{%- endfor +%}
+MyFamily {{ family|join(',') }}
+RelayBandwidthRate {{ tor_kilobytes }} KB
+RelayBandwidthBurst {{ tor_kilobytes_burst }} KB
+ContactInfo Aaron Bugher <aaron@bugher.net>
+DirPort 9030
+DirPortFrontPage /etc/tor/front_page.html
+ExitPolicy reject *:*
