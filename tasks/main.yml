@@ -1,11 +1,11 @@
 ---
-- include:              '../tasks/install_files.yml'
-- include:              '../tasks/commands.yml'
+- include_tasks:        '../tasks/install_files.yml'
+- include_tasks:        '../tasks/commands.yml'
   when:                 install_files_result.changed
-- include:              '../tasks/install_packages.yml'
-- include:              '../tasks/template_files.yml'
-- include:              '../tasks/restart_services.yml'
+- include_tasks:        '../tasks/install_packages.yml'
+- include_tasks:        '../tasks/template_files.yml'
+- include_tasks:        '../tasks/restart_services.yml'
   when:                 install_packages_result.changed
                         or template_files_result.changed
-- include:              '../tasks/enable_services.yml'
-- include:              '../tasks/start_services.yml'
+- include_tasks:        '../tasks/enable_services.yml'
+- include_tasks:        '../tasks/start_services.yml'
