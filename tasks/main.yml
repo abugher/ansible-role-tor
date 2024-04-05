@@ -8,4 +8,9 @@
   when:                 install_packages_result.changed
                         or template_files_result.changed
 - include_tasks:        '../tasks/enable_services.yml'
+# Tor init script seems buggy.  Don't start immediately after a restart.  (The
+# init script seems to fail to recognize that another instance has started,
+# tries to start Tor, and fails because the ports are bound by the other
+# instance.)
 - include_tasks:        '../tasks/start_services.yml'
+  when:                 restart_services_result is not defined
