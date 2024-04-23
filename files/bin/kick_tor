@@ -1,0 +1,3 @@
+#!/bin/bash
+
+service tor status || service tor start
