@@ -1,3 +1,15 @@
 #!/bin/bash
 
-service tor status || service tor start
+
+function main() {
+  kick_tor > /var/log/kick_tor.log 2>&1
+  echo "${?}" > /var/log/kick_tor.ret
+}
+
+
+function kick_tor() {
+  service tor status || service tor start
+}
+
+
+main "${@}"

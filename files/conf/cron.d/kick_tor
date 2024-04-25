@@ -1,13 +1,13 @@
 # m     h       dom     mon     dow     user    command
-00      *       *       *       *       root    /usr/local/bin/kick_tor > /var/log/kick_tor.log
-05      *       *       *       *       root    /usr/local/bin/kick_tor > /var/log/kick_tor.log
-10      *       *       *       *       root    /usr/local/bin/kick_tor > /var/log/kick_tor.log
-15      *       *       *       *       root    /usr/local/bin/kick_tor > /var/log/kick_tor.log
-20      *       *       *       *       root    /usr/local/bin/kick_tor > /var/log/kick_tor.log
-25      *       *       *       *       root    /usr/local/bin/kick_tor > /var/log/kick_tor.log
-30      *       *       *       *       root    /usr/local/bin/kick_tor > /var/log/kick_tor.log
-35      *       *       *       *       root    /usr/local/bin/kick_tor > /var/log/kick_tor.log
-40      *       *       *       *       root    /usr/local/bin/kick_tor > /var/log/kick_tor.log
-45      *       *       *       *       root    /usr/local/bin/kick_tor > /var/log/kick_tor.log
-50      *       *       *       *       root    /usr/local/bin/kick_tor > /var/log/kick_tor.log
-55      *       *       *       *       root    /usr/local/bin/kick_tor > /var/log/kick_tor.log
+00      *       *       *       *       root    /usr/local/bin/kick_tor
+05      *       *       *       *       root    /usr/local/bin/kick_tor
+10      *       *       *       *       root    /usr/local/bin/kick_tor
+15      *       *       *       *       root    /usr/local/bin/kick_tor
+20      *       *       *       *       root    /usr/local/bin/kick_tor
+25      *       *       *       *       root    /usr/local/bin/kick_tor
+30      *       *       *       *       root    /usr/local/bin/kick_tor
+35      *       *       *       *       root    /usr/local/bin/kick_tor
+40      *       *       *       *       root    /usr/local/bin/kick_tor
+45      *       *       *       *       root    /usr/local/bin/kick_tor
+50      *       *       *       *       root    /usr/local/bin/kick_tor
+55      *       *       *       *       root    /usr/local/bin/kick_tor
