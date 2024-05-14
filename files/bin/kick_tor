@@ -8,7 +8,7 @@ function main() {
 
 
 function kick_tor() {
-  service tor status || service tor start
+  /usr/sbin/service tor status || /usr/sbin/service tor start
 }
 
 
