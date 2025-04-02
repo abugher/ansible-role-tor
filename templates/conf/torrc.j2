@@ -1,4 +1,13 @@
-SocksPort 0
+{% if hostvars[inventory_hostname]['tor_socks_port'] is defined %}
+  {% if hostvars[inventory_hostname]['tor_socks_address'] is defined %}
+    {% set SocksPort = hostvars[inventory_hostname]['tor_socks_address'] + ":" + hostvars[inventory_hostname]['tor_socks_port'] %}
+  {% else %}
+    {% set SocksPort = hostvars[inventory_hostname]['tor_socks_port'] %}
+  {% endif %}
+{% else %}
+  {% set SocksPort = 0 %}
+{% endif %}
+SocksPort {{ SocksPort }}
 ORPort 9001
 Address {{ inventory_hostname }}.{{ domain }}
 Nickname {% if tor_nickname is defined %}{{ tor_nickname }}{% else %}{{ inventory_hostname }}{% endif %}
