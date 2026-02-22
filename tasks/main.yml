@@ -1,14 +1,14 @@
 ---
-- include_tasks:        '../tasks/install_files.yml'
-- include_tasks:        '../tasks/install_packages.yml'
-- include_tasks:        '../tasks/template_files.yml'
-- include_tasks:        '../tasks/restart_services.yml'
+- include_tasks:        'tasks/common/install_files.yml'
+- include_tasks:        'tasks/common/install_packages.yml'
+- include_tasks:        'tasks/common/template_files.yml'
+- include_tasks:        'tasks/common/restart_services.yml'
   when:                 install_packages_result.changed
                         or template_files_result.changed
-- include_tasks:        '../tasks/enable_services.yml'
+- include_tasks:        'tasks/common/enable_services.yml'
 # Tor init script seems buggy.  Don't start immediately after a restart.  (The
 # init script seems to fail to recognize that another instance has started,
 # tries to start Tor, and fails because the ports are bound by the other
 # instance.)
-- include_tasks:        '../tasks/start_services.yml'
+- include_tasks:        'tasks/common/start_services.yml'
   when:                 restart_services_result is not defined
