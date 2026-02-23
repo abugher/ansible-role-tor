@@ -1,4 +1,5 @@
 ---
+install_packages_from_release:          "{{ os_release_name }}-backports"
 install_packages:
   - 'tor'
 install_files:
@@ -12,7 +13,6 @@ install_files:
     mode:                               '0755'
     src:                                'files/bin/kick_tor'
     dest:                               '/usr/local/bin/kick_tor'
-install_packages_from_release:          'bookworm-backports'
 template_files:
   - owner:                              'root'
     group:                              'root'
